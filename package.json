@@ -2,7 +2,7 @@
     "name": "angular-2-forum",
     "version": "1.0.0",
     "author": "Daniel Geslin",
-    "description": "Package for the Acme Product Management sample application",
+    "description": "basic forum like app in angular 2",
     "scripts": {
         "start": "concurrently \"npm run tsc:w\" \"npm run lite\" ",
         "tsc": "tsc",
