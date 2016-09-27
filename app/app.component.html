@@ -8,7 +8,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand">Dgeslin</a>
+        <a [routerLink]="['ArticleList']" class="navbar-brand">Dgeslin</a>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -18,7 +18,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li ng-class="{'active': vm.route === '/article'}">
-            <a >Create New Article</a>
+            <a [routerLink]="['Article']">Create New Article</a>
           </li>
         </ul>
       </div>

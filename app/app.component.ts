@@ -6,6 +6,8 @@ import { AdapterService } from './services/adapter.service';
 import { AjaxService } from './services/ajax.service';
 import { ArticleList } from './articleList/article-list.component';
 import { TagList } from './tagList/tag-list.component';
+import { Article } from './article/article.component';
+
 @Component({
   selector: 'a2f-app',
   templateUrl: 'app/app.component.html',
@@ -14,7 +16,8 @@ import { TagList } from './tagList/tag-list.component';
 })
 @RouteConfig([
   { path: '/', name: 'ArticleList', component: ArticleList, useAsDefault: true },
-  { path: '/tags', name: 'TagList', component: TagList }
+  { path: '/tags', name: 'TagList', component: TagList },
+  { path: '/article', name: 'Article', component: Article }
 ])
 export class AppComponent {
 

@@ -15,7 +15,7 @@
           <td>{{i + 1}}</td>
           <td>{{tag.id}}</td>
           <td>{{tag.text}}</td>
-          <td>{{tag.creation_timestamp | date: 'dd/MM/y HH:mm'}}</td>
+          <td>{{tag.creationTimestamp | date: 'dd'}}/{{tag.creationTimestamp | date: 'MM/yyyy HH:mm'}}</td>
         </tr>
       </tbody>
     </table>
