@@ -5,6 +5,7 @@ import { HTTP_PROVIDERS } from 'angular2/http';
 import { AdapterService } from './services/adapter.service';
 import { AjaxService } from './services/ajax.service';
 import { ArticleList } from './articleList/article-list.component';
+import { TagList } from './tagList/tag-list.component';
 @Component({
   selector: 'a2f-app',
   templateUrl: 'app/app.component.html',
@@ -12,7 +13,8 @@ import { ArticleList } from './articleList/article-list.component';
   providers: [AdapterService, AjaxService, HTTP_PROVIDERS, ROUTER_PROVIDERS]
 })
 @RouteConfig([
-  { path: '/', name: 'ArticleList', component: ArticleList, useAsDefault: true }
+  { path: '/', name: 'ArticleList', component: ArticleList, useAsDefault: true },
+  { path: '/tags', name: 'TagList', component: TagList }
 ])
 export class AppComponent {
 

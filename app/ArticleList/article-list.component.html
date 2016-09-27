@@ -12,8 +12,8 @@
         </tr>
       </thead>
       <tbody *ngIf="articles && articles.length">
-        <tr *ngFor="#article of articles">
-          <td></td>
+        <tr *ngFor="#article of articles; #i = index">
+          <td>{{i + 1}}</td>
           <td>{{article.id}}</td>
           <td>{{article.title}}</td>
           <td>{{article.title}}</td>

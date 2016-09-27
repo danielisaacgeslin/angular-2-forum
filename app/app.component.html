@@ -1,3 +1,44 @@
+<header>
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand">Dgeslin</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li ng-class="{'active': vm.route === '/'}"><a [routerLink]="['ArticleList']">Article List <span class="sr-only">(current)</span></a></li>
+          <li ng-class="{'active': vm.route === '/tags'}"><a [routerLink]="['TagList']">Tag List</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li ng-class="{'active': vm.route === '/article'}">
+            <a >Create New Article</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
 <div class="container">
   <router-outlet></router-outlet>
 </div>
+
+<footer class="well">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 text-right">
+        <br/><br/><br/><br/>
+        <strong>Daniel Geslin</strong>
+        <br>
+        <a href="mailto:danielisaacgeslin@gmail.com">danielisaacgeslin@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</footer>
