@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AjaxService{
-  api: string = '../dgeslin/?route=';
+  api: string = 'http://localhost/dgeslin/?route=';
 
   constructor(private _http: Http, private _adapterService: AdapterService){ }
 
