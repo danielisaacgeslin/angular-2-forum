@@ -17,7 +17,7 @@ import { Article } from './article/article.component';
 @RouteConfig([
   { path: '/', name: 'ArticleList', component: ArticleList, useAsDefault: true },
   { path: '/tags', name: 'TagList', component: TagList },
-  { path: '/article', name: 'Article', component: Article }
+  { path: '/article/:id', name: 'Article', component: Article }
 ])
 export class AppComponent {
 

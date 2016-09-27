@@ -1,1 +1,54 @@
-article
+<div id="article" class="row">
+  <div [ngClass]="{'col-md-9': editEnabled}" class="col-xs-12">
+    <article *ngIf="article">
+      <h5>Tags</h5>
+      <ul>
+        <li class="label label-default tag" *ngFor="#tag of tags">
+          {{tag.text}} <a *ngIf="editEnabled">x</a>
+        </li>
+      </ul>
+      <h1 class="title">{{article.title}}</h1>
+      <h3 class="description">{{article.description}}</h3>
+      <p class="body">{{article.body}}</p>
+    </article>
+    <div class="comments" *ngIf="article && article.id">
+      <h4>Comments</h4>
+      <ul>
+        <li class="alert alert-info" *ngFor="#comment of comments; #i = index">
+          <p>
+            <a class="btn btn-primary delete">x</a>
+            <span>{{comment.creationTimestamp | date: 'dd/MM/y HH:mm'}} - </span>
+            <strong>{{comment.text}} </strong>
+            <a class="btn btn-default edit" ><small>edit</small></a>
+            <span class="comment-edit" *ngIf="editableComment == i">
+              <textarea class="form-control" ng-model="vm.editableCommentText" type="text"></textarea>
+              <button class="btn btn-default">Save</button>
+            </span>
+          </p>
+        </li>
+      </ul>
+      <h5>New comment</h5>
+      <textarea class="form-control" type="text" ng-model="vm.newComment"></textarea>
+      <div>
+        <button  class="btn btn-default">Add comment</button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="editEnabled" class="col-md-3">
+    <div>
+      <h5>Content</h5>
+      <label>Title</label>
+      <input class="form-control" type="text" ng-model="edition.title"/>
+      <label>Description</label>
+      <input class="form-control" type="text" ng-model="edition.description"/>
+      <label>Body</label>
+      <textarea class="form-control" ng-model="edition.body"></textarea>
+      <button  class="btn btn-primary">Save</button>
+    </div>
+    <div>
+      <h5>Tags</h5>
+      <select></select>
+      <button  ng-disabled="vm.filteredTags[0]" class="btn btn-default">Add Tag</button>
+    </div>
+  </div>
+</div>

@@ -17,8 +17,8 @@
           <td>{{article.id}}</td>
           <td>{{article.title}}</td>
           <td>{{article.title}}</td>
-          <td><a href="#">delete</a></td>
-          <td><a href="#">link</a></td>
+          <td><a>delete</a></td>
+          <td><a [routerLink]="['Article', {id: article.id}]">link</a></td>
         </tr>
       </tbody>
     </table>

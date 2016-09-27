@@ -18,7 +18,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li ng-class="{'active': vm.route === '/article'}">
-            <a [routerLink]="['Article']">Create New Article</a>
+            <a [routerLink]="['Article', {id: 'new'}]">Create New Article</a>
           </li>
         </ul>
       </div>
