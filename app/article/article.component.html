@@ -47,7 +47,7 @@
     </div>
     <div>
       <h5>Tags</h5>
-      <select>
+      <select [(ngModel)]="selectedTagId">
         <option *ngFor="#tag of filterTags(tags)" value="{{tag.id}}">{{tag.text}}</option>
       </select>
       <button  ng-disabled="vm.filteredTags[0]" class="btn btn-default">Add Tag</button>

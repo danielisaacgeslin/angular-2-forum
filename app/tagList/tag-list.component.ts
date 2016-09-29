@@ -6,13 +6,11 @@ import { AjaxService } from '../services/ajax.service';
   templateUrl: 'app/tagList/tag-list.component.html'
 })
 export class TagList{
-  tags: ITag[];
+  public tags: ITag[];
 
-  constructor(private _ajaxService: AjaxService){}
+  public constructor(private _ajaxService: AjaxService){}
 
-  ngOnInit(): void{
-    this._ajaxService.getTags().subscribe(
-      tags => this.tags = tags
-    );
+  private ngOnInit(): void{
+    this._ajaxService.getTags().subscribe(tags => this.tags = tags);
   }
 }

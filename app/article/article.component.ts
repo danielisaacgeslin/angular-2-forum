@@ -9,16 +9,18 @@ import { AjaxService } from '../services/ajax.service';
   templateUrl: 'app/article/article.component.html'
 })
 export class Article{
-  id: number;
-  article: IArticle;
-  comments: IComment[] = [];
-  articleTags: ITag[] = [];
-  edition: IArticle;
-  tags: ITag[] = [];
-  editEnabled: boolean = true;
+  private id: number;
+  public article: IArticle;
+  public comments: IComment[] = [];
+  public articleTags: ITag[] = [];
+  public edition: IArticle;
+  public tags: ITag[] = [];
+  public selectedTagId: number;
+  public editEnabled: boolean = true;
 
   constructor(private _ajaxService: AjaxService, private _routeParams: RouteParams){ }
-  ngOnInit(): void{
+
+  private ngOnInit(): void{
     const id: number = Number(this._routeParams.get('id'));
     if(!isNaN(id)){
       this.id = id;
@@ -29,19 +31,19 @@ export class Article{
     this._ajaxService.getTags().subscribe(tags => this.tags = tags);
   }
 
-  updateArticle(): void{
+  private updateArticle(): void{
     this._ajaxService.getArticle(this.id).subscribe(article => this.article = this.edition = article);
   }
 
-  updateComments(): void{
+  private updateComments(): void{
     this._ajaxService.getComments(this.id).subscribe(comments => this.comments = comments);
   }
 
-  updateArticleTags(): void{
+  private updateArticleTags(): void{
     this._ajaxService.getArticleTagList(this.id).subscribe(articleTags => this.articleTags = articleTags);
   }
 
-  filterTags(): ITag[]{
+  public filterTags(): ITag[]{
     let filteredTags: ITag[] = [];
     if(this.tags.length && this.articleTags.length){
       filteredTags = this.tags.filter(tag =>{

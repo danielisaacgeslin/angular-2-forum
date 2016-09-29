@@ -2,7 +2,7 @@ import { Injectable } from 'angular2/core';
 
 @Injectable()
 export class AdapterService{
-  adaptDBArray(array: any[]): any[]{
+  public adaptDBArray(array: any[]): any[]{
     const adapted: any[] = [];
     for(let arrayItem of array){
       const obj: Object = {};
@@ -14,10 +14,10 @@ export class AdapterService{
       }
       adapted.push(obj);
     }
-    return adapted;
+    return <any[]>adapted;
   }
 
-  adaptKey(key: string): string{
+  public adaptKey(key: string): string{
     const keyArray: string[] = key.split('_');
     let newKey: string = '';
     for(let item of keyArray){
@@ -25,6 +25,6 @@ export class AdapterService{
       newKey = newKey.concat(item);
     }
     newKey = newKey.charAt(0).toLowerCase() + newKey.substring(1, newKey.length);
-    return newKey;
+    return <string>newKey;
   }
 }

@@ -8,13 +8,11 @@ import { ROUTER_DIRECTIVES } from 'angular2/router';
   directives: [ROUTER_DIRECTIVES]
 })
 export class ArticleList {
-  articles: IArticle[];
+  public articles: IArticle[];
 
-  constructor(private _ajaxService: AjaxService){ }
+  public constructor(private _ajaxService: AjaxService){ }
 
-  ngOnInit(): void{
-    this._ajaxService.getArticleList().subscribe(
-      articles => this.articles = articles
-    );
+  private ngOnInit(): void{
+    this._ajaxService.getArticleList().subscribe(articles => this.articles = articles);
   }
 }
