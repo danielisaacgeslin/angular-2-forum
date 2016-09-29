@@ -3,7 +3,7 @@
     <article *ngIf="article">
       <h5>Tags</h5>
       <ul>
-        <li class="label label-default tag" *ngFor="#tag of tags">
+        <li class="label label-default tag" *ngFor="#tag of articleTags">
           {{tag.text}} <a *ngIf="editEnabled">x</a>
         </li>
       </ul>
@@ -17,7 +17,7 @@
         <li class="alert alert-info" *ngFor="#comment of comments; #i = index">
           <p>
             <a class="btn btn-primary delete">x</a>
-            <span>{{comment.creationTimestamp | date: 'dd/MM/y HH:mm'}} - </span>
+            <span>{{comment.creationTimestamp | date: 'dd'}}/{{comment.creationTimestamp | date: 'MM/y HH:mm'}} - </span>
             <strong>{{comment.text}} </strong>
             <a class="btn btn-default edit" ><small>edit</small></a>
             <span class="comment-edit" *ngIf="editableComment == i">
@@ -35,19 +35,21 @@
     </div>
   </div>
   <div *ngIf="editEnabled" class="col-md-3">
-    <div>
+    <div *ngIf="edition">
       <h5>Content</h5>
       <label>Title</label>
-      <input class="form-control" type="text" ng-model="edition.title"/>
+      <input class="form-control" type="text" [(ngModel)]="edition.title"/>
       <label>Description</label>
-      <input class="form-control" type="text" ng-model="edition.description"/>
+      <input class="form-control" type="text" [(ngModel)]="edition.description"/>
       <label>Body</label>
-      <textarea class="form-control" ng-model="edition.body"></textarea>
+      <textarea class="form-control" [(ngModel)]="edition.body"></textarea>
       <button  class="btn btn-primary">Save</button>
     </div>
     <div>
       <h5>Tags</h5>
-      <select></select>
+      <select>
+        <option *ngFor="#tag of filterTags(tags)" value="{{tag.id}}">{{tag.text}}</option>
+      </select>
       <button  ng-disabled="vm.filteredTags[0]" class="btn btn-default">Add Tag</button>
     </div>
   </div>
