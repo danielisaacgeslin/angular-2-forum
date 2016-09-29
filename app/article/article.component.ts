@@ -3,6 +3,7 @@ import { RouteParams } from 'angular2/router';
 import { IArticle } from '../interfaces/article.interface';
 import { ITag } from '../interfaces/tag.interface';
 import { IComment } from '../interfaces/comment.interface';
+import { Observable } from 'rxjs/Observable';
 import { AjaxService } from '../services/ajax.service';
 
 @Component({
@@ -45,16 +46,14 @@ export class Article{
 
   public filterTags(): ITag[]{
     let filteredTags: ITag[] = [];
-    if(this.tags.length && this.articleTags.length){
-      filteredTags = this.tags.filter(tag =>{
-        for(let i=0; i<this.articleTags.length; i++){
-          if(this.articleTags[i].id === tag.id){
-            return false;
-          }
+    filteredTags = this.tags.filter(tag =>{
+      for(let i=0; i<this.articleTags.length; i++){
+        if(this.articleTags[i].id === tag.id){
+          return false;
         }
-        return true;
-      });
-    }
+      }
+      return true;
+    });
     return <ITag[]>filteredTags;
   }
 
