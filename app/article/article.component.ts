@@ -18,6 +18,8 @@ export class Article{
   public tags: ITag[] = [];
   public selectedTagId: number;
   public editableCommentText: string;
+  public editableComment: number;
+  public newComment: string;
   public editEnabled: boolean = true;
 
   constructor(private _ajaxService: AjaxService, private _routeParams: RouteParams){ }
@@ -45,6 +47,12 @@ export class Article{
     this._ajaxService.getArticleTagList(this.id).subscribe(articleTags => this.articleTags = articleTags);
   }
 
+  public setEditableComment(comment: IComment): void{
+    this.editableComment = this.editableComment !== comment.id ? comment.id : null;
+    this.editableCommentText = this.editableComment !== comment.id ? comment.text : null;
+    console.log(this.editableComment, this.editableCommentText)
+  }
+
   public filterTags(): ITag[]{
     let filteredTags: ITag[] = [];
     filteredTags = this.tags.filter(tag =>{
@@ -57,6 +65,4 @@ export class Article{
     });
     return <ITag[]>filteredTags;
   }
-
-
 }
