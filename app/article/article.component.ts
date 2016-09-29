@@ -17,6 +17,7 @@ export class Article{
   public edition: IArticle;
   public tags: ITag[] = [];
   public selectedTagId: number;
+  public editableCommentText: string;
   public editEnabled: boolean = true;
 
   constructor(private _ajaxService: AjaxService, private _routeParams: RouteParams){ }

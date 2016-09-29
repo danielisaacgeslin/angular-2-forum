@@ -21,7 +21,7 @@
             <strong>{{comment.text}} </strong>
             <a class="btn btn-default edit" ><small>edit</small></a>
             <span class="comment-edit" *ngIf="editableComment == i">
-              <textarea class="form-control" ng-model="vm.editableCommentText" type="text"></textarea>
+              <textarea class="form-control" [(ngModel)]="editableCommentText" type="text"></textarea>
               <button class="btn btn-default">Save</button>
             </span>
           </p>
